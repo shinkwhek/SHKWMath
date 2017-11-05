@@ -1,0 +1,45 @@
+% ==== ==== ==== `shkwmath.sty' ==== ==== ==== %
+
+% (c) Shin KAWAHARA (@hek_shk)
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{shkwmath}[2017/11/05 dev]
+\def\shkw@pkgname{shkwmath}
+
+% messages
+\def\shkw@info{\PackageInfo\shkw@pkgname}
+\def\shkw@warm{\PackageWarningNoLine\shkw@pkgname}
+\def\shkw@error{\PackageError\shkw@pkgname}
+
+% package option
+
+% ==== ==== ==== Format ==== ==== ==== %
+% ---- ---- Vector Symbol ---- ---- %
+\def\shkw@vect#1\@nil{\mbox{\boldmath $#1$}}
+\newcommand{\vect}[1]{\expandafter\shkw@vect#1\@nil}
+
+% ==== ==== ==== Environment ==== ==== ==== %
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins, breakable, theorems}
+% theorem
+\RequirePackage{amssymb}
+
+% ---- ---- The Definition Box ---- ---- %
+\newtcbtheorem[number within=section]{definition}{定義}%
+{colback=white, colframe=black, fonttitle=\bfseries, separator sign dash}{defi}
+% ---- ---- The Nature Box ---- ---- %
+\newtcolorbox{nature}{%
+  colback=white, fonttitle=\bfseries, colframe=gray, title=性質}
+% ---- ---- The Theorem Box ---- ---- %
+\newtcbtheorem[number within=section]{theorem}{定理}%
+{colback=white, colframe=black, colbacktitle=red!30!black, coltitle=white,
+fonttitle=\bfseries, separator sign dash}{theo}
+% ---- ---- The Lemma Box ---- ---- %
+\newtcbtheorem[number within=section]{lemma}{補題}%
+{colback=white, colframe=black, colbacktitle=green!30!black, coltitle=white,
+fonttitle=\bfseries, separator sign dash}{lemm}
+%
+% done
+\endinput
+
+%% EOF
